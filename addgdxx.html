@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<head>
+    <title>测试</title>
+</head>
+
+<body>
+    <!-- <div>ceshi</div> -->
+
+    <body>
+
+</html>
+<script>
+    (function () {
+        var token = "" + (token = new Date()).getFullYear() + token.getMonth() + token.getDate() + Math.floor(Math.random(4) * 10000);
+
+        /* if your website does not introduce jQuery ,please cancel the ollowing annotation code.*/
+        var scriptDom = document.createElement("script");
+        scriptDom.src = "https://assets-cli.udesk.cn/ticket_js_sdk/static/vendor/js/jquery.min.js?t=" + token;
+        document.body.appendChild(scriptDom);
+
+        var scriptDom = document.createElement("script");
+        scriptDom.src = "https://assets-cli.udesk.cn/ticket_js_sdk/1.0.1/js/sdk.min.js?t=" + token;
+        document.body.appendChild(scriptDom);
+        var styleDom = document.createElement("link");
+        styleDom.rel = "stylesheet";
+        styleDom.href = "https://assets-cli.udesk.cn/ticket_js_sdk/1.0.1/css/sdk.min.css?t=" + token;
+        document.body.appendChild(styleDom);
+        scriptDom.addEventListener('load', function () {
+            var udesk = UdeskSDK.ticketSDK.init({
+                subdomain: 'zhulong.udesk.cn',
+                appid: '3eb362be3f518e5b',
+                signature: 'c9dd58e9c663d3703216c9bff8cb8cbd6cca17a90c7deff1a3fbc2c239b1ddd9',
+                type: 'email',
+                content: 'service@zhulong.com.cn'
+            });
+            udesk.create({
+                type: 'new',
+                classNames: 'subdomain-ticket-sdk',
+                container: document.body,
+                height: "100%",
+                width: "100%",
+                position: {
+                    position: "relative"
+                },
+            });
+            
+
+        }, false);
+    })();
+</script>
